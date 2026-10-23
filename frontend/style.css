@@ -1,0 +1,504 @@
+
+:root {
+    --olive: #b8c653;
+    --green: #245b3f;
+    --dark-green: #173d2c;
+    --pink: #f28bb0;
+    --cream: #faf9f5;
+    --text: #26352c;
+    --muted: #707970;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background: white;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.navbar-brand {
+    color: var(--dark-green);
+    font-weight: 750;
+    font-size: 1.4rem;
+}
+
+.nav-link {
+    color: var(--text);
+    font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--green);
+}
+
+.btn-agri {
+    background: var(--green);
+    color: white;
+    border: 1px solid var(--green);
+    border-radius: 8px;
+    padding: 11px 20px;
+    font-weight: 600;
+}
+
+.btn-agri:hover {
+    background: var(--dark-green);
+    color: white;
+}
+
+.hero {
+    min-height: 510px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(90deg, rgba(16, 43, 29, .88), rgba(16, 43, 29, .22)),
+        url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1800&q=85")
+        center/cover no-repeat;
+    color: white;
+    padding: 75px 0;
+}
+
+.hero-content {
+    max-width: 660px;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: var(--green);
+    font-size: .77rem;
+    font-weight: 750;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+
+.hero .eyebrow {
+    color: #e5edb5;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 750;
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #dce58d;
+}
+
+.hero-content > p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 560px;
+    color: #f2f4ee;
+}
+
+.search-box {
+    display: flex;
+    gap: 8px;
+    background: white;
+    padding: 8px;
+    border-radius: 12px;
+    margin-top: 28px;
+    max-width: 600px;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    padding: 12px;
+    color: var(--text);
+}
+
+.hero-note {
+    margin-top: 22px;
+    font-size: .9rem;
+}
+
+.stats-section {
+    padding: 30px 0;
+    background: var(--cream);
+}
+
+.stat-card {
+    padding: 20px 10px;
+    background: white;
+    border: 1px solid #edf0e8;
+    border-radius: 12px;
+    height: 100%;
+}
+
+.stat-card h3 {
+    color: var(--green);
+    font-size: 1.1rem;
+    font-weight: 750;
+}
+
+.stat-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.section-padding {
+    padding: 75px 0;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.section-heading h2,
+.about-box h2 {
+    color: var(--dark-green);
+    font-weight: 750;
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+}
+
+.section-heading p,
+.about-box p {
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.view-link {
+    color: var(--green);
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.flower-card {
+    border: 1px solid #e9ece5;
+    border-radius: 14px;
+    overflow: hidden;
+    height: 100%;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.flower-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px #173d2c14;
+}
+
+.flower-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.flower-info {
+    padding: 18px;
+}
+
+.flower-info h5 {
+    color: var(--dark-green);
+    font-weight: 700;
+}
+
+.flower-info p {
+    color: var(--muted);
+    font-size: .88rem;
+    margin-bottom: 0;
+}
+
+.how-section {
+    background: var(--cream);
+}
+
+.centered {
+    justify-content: center;
+    text-align: center;
+}
+
+.step-card {
+    background: white;
+    padding: 28px;
+    border-radius: 14px;
+    border: 1px solid #e9ece5;
+    height: 100%;
+}
+
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #edf2d7;
+    color: var(--green);
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.step-card h4 {
+    color: var(--dark-green);
+    font-weight: 700;
+}
+
+.step-card p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+.about-box {
+    max-width: 850px;
+    text-align: center;
+}
+
+.about-box p {
+    max-width: 680px;
+    margin: 20px auto 28px;
+}
+
+.footer {
+    background: var(--dark-green);
+    color: white;
+    padding: 28px 0;
+}
+
+.footer p {
+    margin: 0;
+    color: #e1e8df;
+}
+
+.footer-logo {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    background: white;
+    border-radius: 50%;
+}
+
+@media (max-width: 576px) {
+    .hero {
+        min-height: 460px;
+        padding: 55px 0;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box .btn {
+        width: 100%;
+    }
+
+    .section-padding {
+        padding: 50px 0;
+    }
+
+    .section-heading {
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .flower-card img {
+        height: 150px;
+    }
+
+    .flower-info {
+        padding: 12px;
+    }
+}
+
+.flower-card img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px 12px 0 0;
+}
+
+.flower-card {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* AgriConnect - How It Works */
+
+.section-label {
+    color: #245B3F;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.feature-card {
+    background: #FFFFFF;
+    border: 1px solid #E6E9E1;
+    border-radius: 16px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(23, 61, 44, 0.10);
+}
+
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: #EAF1E8;
+    color: #245B3F;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.feature-card h4 {
+    color: #173D2C;
+    font-weight: 700;
+}
+
+.feature-card p {
+    color: #667067;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* =====================================
+   AgriConnect - Mobile Navigation Fix
+   ===================================== */
+
+@media (max-width: 991.98px) {
+
+    .navbar {
+        padding: 12px 0 !important;
+    }
+
+    .navbar .container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 8px !important;
+        margin-right: 0;
+        max-width: calc(100% - 60px);
+    }
+
+    .navbar-brand .logo {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+    }
+
+    .navbar-brand span {
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    .navbar-toggler {
+        padding: 6px 9px;
+        border: 1px solid #dce5dc;
+        border-radius: 8px;
+        box-shadow: none !important;
+    }
+
+    .navbar-collapse {
+        flex-basis: 100%;
+        width: 100%;
+        margin-top: 14px;
+        padding: 12px;
+        background: #FAF9F5;
+        border: 1px solid #e6e9e1;
+        border-radius: 12px;
+    }
+
+    .navbar-nav {
+        align-items: stretch !important;
+        gap: 4px !important;
+        width: 100%;
+    }
+
+    .navbar-nav .nav-item {
+        width: 100%;
+    }
+
+    .navbar-nav .nav-link {
+        display: block;
+        padding: 11px 12px;
+        border-radius: 7px;
+        color: #173D2C;
+        font-size: 1rem;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        background: #EAF1E8;
+        color: #245B3F;
+    }
+
+    .navbar-nav .btn {
+        display: block;
+        width: 100%;
+        margin: 4px 0;
+        padding: 10px 16px !important;
+        text-align: center;
+        border-radius: 8px;
+    }
+}
+
+/* Extra-small mobile screens */
+@media (max-width: 380px) {
+
+    .navbar-brand .logo {
+        width: 34px;
+        height: 34px;
+    }
+
+    .navbar-brand span {
+        font-size: 1.1rem;
+    }
+
+    .navbar-toggler {
+        padding: 5px 7px;
+    }
+}
+
+/* Seed Supplier Dashboard Logo */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.brand-logo span {
+    color: #173D2C;
+    font-size: 1.25rem;
+    font-weight: 700;
+    white-space: nowrap;
+}

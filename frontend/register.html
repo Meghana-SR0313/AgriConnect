@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | AgriConnect</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .register-page {
+            min-height: 100vh;
+            background: #faf9f5;
+            padding: 45px 16px;
+        }
+
+        .register-card {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            border: 1px solid #e8ebe4;
+            border-radius: 18px;
+            padding: 36px;
+            box-shadow: 0 12px 35px #173d2c0c;
+        }
+
+        .register-logo {
+            width: 65px;
+            height: 65px;
+            object-fit: contain;
+        }
+
+        .register-card h1 {
+            color: #173d2c;
+            font-weight: 750;
+        }
+
+        .register-card label {
+            font-weight: 600;
+            font-size: .92rem;
+        }
+
+        .role-option {
+            border: 1px solid #dfe5d8;
+            border-radius: 10px;
+            padding: 14px;
+            cursor: pointer;
+            display: block;
+            height: 100%;
+            transition: background .2s, border-color .2s;
+        }
+
+        .role-option:has(input:checked) {
+            border-color: #245b3f;
+            background: #f0f5e9;
+        }
+
+        .role-option input {
+            accent-color: #245b3f;
+        }
+
+        .role-option:focus-within {
+            outline: 2px solid #245b3f;
+            outline-offset: 2px;
+        }
+
+        .register-message {
+            min-height: 24px;
+            font-size: .9rem;
+        }
+
+        @media(max-width: 576px) {
+            .register-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="register-page">
+    <div class="register-card">
+
+        <!-- Logo and heading -->
+        <div class="text-center mb-4">
+            <a href="index.html">
+                <img src="images/logo.png"
+                     class="register-logo"
+                     alt="AgriConnect logo">
+            </a>
+
+            <h1 class="mt-2">Create your account</h1>
+            <p class="text-secondary">
+                Join the AgriConnect community.
+            </p>
+        </div>
+
+        <form id="registerForm">
+
+            <!-- Select user role -->
+            <fieldset class="mb-4">
+                <legend class="form-label mb-3">
+                    I want to join as
+                </legend>
+
+                <div class="row g-3">
+
+                    <div class="col-6 col-md-6">
+                        <label class="role-option">
+                            <input type="radio" name="role"
+                                   value="FARMER" required>
+                            <span class="ms-1">🌱 Farmer</span>
+                        </label>
+                    </div>
+
+                    <div class="col-6 col-md-6">
+                        <label class="role-option">
+                            <input type="radio" name="role"
+                                   value="SEED_SUPPLIER">
+                            <span class="ms-1">🌾 Seed Supplier</span>
+                        </label>
+                    </div>
+
+                    <div class="col-6 col-md-6">
+                        <label class="role-option">
+                            <input type="radio" name="role"
+                                   value="BUYER">
+                            <span class="ms-1">🛍️ Buyer</span>
+                        </label>
+                    </div>
+
+                    <div class="col-6 col-md-6">
+                        <label class="role-option">
+                            <input type="radio" name="role"
+                                   value="FLORIST">
+                            <span class="ms-1">💐 Florist</span>
+                        </label>
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <!-- Personal details -->
+            <div class="mb-3">
+                <label for="fullName" class="form-label">
+                    Full name
+                </label>
+                <input type="text" id="fullName" name="fullName"
+                       class="form-control"
+                       placeholder="Enter your full name"
+                       autocomplete="name" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="registerEmail" class="form-label">
+                    Email address
+                </label>
+                <input type="email" id="registerEmail" name="email"
+                       class="form-control"
+                       placeholder="you@example.com"
+                       autocomplete="email" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="phone" class="form-label">
+                    Phone number
+                </label>
+                <input type="tel" id="phone" name="phone"
+                       class="form-control"
+                       placeholder="10-digit phone number"
+                       pattern="[0-9]{10}"
+                       inputmode="numeric"
+                       maxlength="10"
+                       autocomplete="tel"
+                       title="Enter a 10-digit phone number"
+                       required>
+            </div>
+
+            <div class="mb-3">
+                <label for="registerLocation" class="form-label">
+                    City or district
+                </label>
+                <input type="text" id="registerLocation" name="location"
+                       class="form-control"
+                       placeholder="e.g. Hassan, Karnataka"
+                       autocomplete="address-level2" required>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label for="registerPassword" class="form-label">
+                    Password
+                </label>
+                <input type="password" id="registerPassword"
+                       name="password"
+                       class="form-control"
+                       minlength="8"
+                       autocomplete="new-password"
+                       placeholder="At least 8 characters"
+                       required>
+            </div>
+
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label">
+                    Confirm password
+                </label>
+                <input type="password" id="confirmPassword"
+                       name="confirmPassword"
+                       class="form-control"
+                       minlength="8"
+                       autocomplete="new-password"
+                       placeholder="Re-enter your password"
+                       required>
+            </div>
+
+            <p id="registerMessage"
+               class="register-message"
+               role="status"
+               aria-live="polite"></p>
+
+            <button type="submit" class="btn btn-agri w-100">
+                Create Account
+            </button>
+
+        </form>
+
+        <p class="text-center mt-4 mb-0">
+            Already registered?
+            <a href="login.html" class="text-success fw-semibold">
+                Login
+            </a>
+        </p>
+
+        <p class="text-center text-secondary small mt-3 mb-0">
+            Your account details will be handled securely when backend
+            integration is completed.
+        </p>
+
+    </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

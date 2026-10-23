@@ -1,0 +1,562 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Dashboard | AgriConnect</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background: #faf9f5;
+        }
+
+        .dashboard-layout {
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 245px;
+            flex-shrink: 0;
+            background: #173d2c;
+            color: white;
+            padding: 25px 16px;
+        }
+
+        .sidebar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 35px;
+            font-weight: 750;
+            font-size: 1.2rem;
+        }
+
+        .sidebar-brand img {
+            width: 43px;
+            height: 43px;
+            object-fit: contain;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .sidebar a:not(.sidebar-brand) {
+            display: block;
+            color: #e2eadd;
+            text-decoration: none;
+            padding: 12px 14px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: #2b6347;
+            color: white;
+        }
+
+        .dashboard-main {
+            flex: 1;
+            min-width: 0;
+            padding: 30px;
+        }
+
+        .welcome-title {
+            color: #173d2c;
+            font-weight: 750;
+        }
+
+        .metric-card {
+            background: white;
+            border: 1px solid #e8ebe4;
+            border-radius: 13px;
+            padding: 22px;
+            height: 100%;
+        }
+
+        .metric-label {
+            color: #707970;
+            font-size: .9rem;
+        }
+
+        .metric-value {
+            color: #245b3f;
+            font-size: 1.8rem;
+            font-weight: 750;
+            margin: 8px 0 0;
+        }
+
+        .dashboard-panel {
+            background: white;
+            border: 1px solid #e8ebe4;
+            border-radius: 13px;
+            padding: 22px;
+        }
+
+        .dashboard-panel h5 {
+            color: #173d2c;
+            font-weight: 700;
+        }
+
+        .table {
+            vertical-align: middle;
+        }
+
+        .status-badge {
+            background: #edf2d7;
+            color: #245b3f;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: .8rem;
+        }
+
+        .seed-card {
+            border: 1px solid #e8ebe4;
+            border-radius: 12px;
+            padding: 20px;
+            height: 100%;
+            background: #fff;
+        }
+
+        .seed-card h6 {
+            color: #173d2c;
+            font-weight: 750;
+        }
+
+        .seed-price {
+            color: #245b3f;
+            font-weight: 750;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 800px) {
+            .sidebar {
+                width: 75px;
+                padding: 20px 8px;
+            }
+
+            .sidebar-brand span,
+            .sidebar a span {
+                display: none;
+            }
+
+            .sidebar a:not(.sidebar-brand) {
+                text-align: center;
+                font-size: 1.15rem;
+            }
+
+            .dashboard-main {
+                padding: 20px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <a href="index.html"
+           class="sidebar-brand text-white text-decoration-none">
+            <img src="images/logo.png" alt="AgriConnect logo">
+            <span>AgriConnect</span>
+        </a>
+
+        <nav>
+            <a href="farmer-dashboard.html" class="active">🏡 <span>Dashboard</span></a>
+            <a href="#listings">🌸 <span>My Listings</span></a>
+            <a href="#orders">📦 <span>Orders</span></a>
+            <a href="#matches">🤝 <span>Buyer Matches</span></a>
+            <a href="#seeds">🌱 <span>Browse Seeds</span></a>
+            <a href="#seedRequests">🧾 <span>My Seed Requests</span></a>
+            <a href="index.html">↩️ <span>Home</span></a>
+        </nav>
+    </aside>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard-main">
+
+        <header class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <div>
+                <p class="text-secondary mb-1">Farmer workspace</p>
+                <h2 class="welcome-title mb-0">Welcome, Farmer! 🌿</h2>
+            </div>
+
+            <button class="btn btn-agri"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addFlowerModal">
+                + Add Flower
+            </button>
+        </header>
+
+        <!-- Dashboard statistics -->
+        <section class="row g-3 mb-4">
+            <div class="col-6 col-xl-3">
+                <div class="metric-card">
+                    <div class="metric-label">Active listings</div>
+                    <p class="metric-value" id="listingCount">3</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-xl-3">
+                <div class="metric-card">
+                    <div class="metric-label">Available quantity</div>
+                    <p class="metric-value" id="quantityCount">1,200 kg</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-xl-3">
+                <div class="metric-card">
+                    <div class="metric-label">Pending orders</div>
+                    <p class="metric-value" id="pendingCount">2</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-xl-3">
+                <div class="metric-card">
+                    <div class="metric-label">Buyer matches</div>
+                    <p class="metric-value">5</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Farmer's flower listings -->
+        <section class="dashboard-panel mb-4" id="listings">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                <h5 class="mb-0">My Flower Listings</h5>
+
+                <button class="btn btn-outline-success btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#addFlowerModal">
+                    Add Listing
+                </button>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Flower</th>
+                            <th>Quantity</th>
+                            <th>Price / kg</th>
+                            <th>Availability</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="farmerListings">
+                        <tr>
+                            <td>Rose</td>
+                            <td>500 kg</td>
+                            <td>₹120</td>
+                            <td><span class="status-badge">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td>Marigold</td>
+                            <td>400 kg</td>
+                            <td>₹60</td>
+                            <td><span class="status-badge">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td>Jasmine</td>
+                            <td>300 kg</td>
+                            <td>₹200</td>
+                            <td><span class="status-badge">Available</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Buyer matches and orders -->
+        <section class="row g-4 mb-4">
+
+            <div class="col-lg-6" id="matches">
+                <div class="dashboard-panel h-100">
+                    <h5>Potential Buyer Matches</h5>
+                    <p class="text-secondary">
+                        Example requirements that may match your flowers.
+                    </p>
+
+                    <div class="border rounded-3 p-3 mb-3">
+                        <strong>Rose requirement</strong>
+                        <p class="text-secondary mb-1">
+                            Requested: 200 kg · Location: Hassan
+                        </p>
+                        <span class="status-badge">Potential match</span>
+                    </div>
+
+                    <div class="border rounded-3 p-3">
+                        <strong>Marigold requirement</strong>
+                        <p class="text-secondary mb-1">
+                            Requested: 150 kg · Location: Bengaluru
+                        </p>
+                        <span class="status-badge">Potential match</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6" id="orders">
+                <div class="dashboard-panel h-100">
+                    <h5>Recent Orders</h5>
+
+                    <div class="border-bottom py-3">
+                        <strong>Order #AG001</strong>
+                        <p class="text-secondary mb-1">Rose · 100 kg</p>
+                        <span class="status-badge">Pending confirmation</span>
+                    </div>
+
+                    <div class="py-3">
+                        <strong>Order #AG002</strong>
+                        <p class="text-secondary mb-1">Marigold · 50 kg</p>
+                        <span class="status-badge">Processing</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- NEW: Browse Flower Seeds -->
+        <section class="dashboard-panel mb-4" id="seeds">
+            <div class="mb-3">
+                <h5>Browse Flower Seeds 🌱</h5>
+                <p class="text-secondary mb-0">
+                    Explore sample seed products and request seeds from suppliers.
+                </p>
+            </div>
+
+            <div class="row g-3">
+
+                <div class="col-md-6 col-xl-4">
+                    <div class="seed-card">
+                        <h6>Rose Seeds</h6>
+                        <p class="text-secondary mb-2">Variety: Hybrid</p>
+                        <p class="seed-price mb-2">₹500 / kg</p>
+                        <p class="text-success">Sample stock: 30 kg</p>
+
+                        <button type="button"
+                                class="btn btn-success w-100"
+                                onclick="requestSeeds('Rose', 'Hybrid', 500)">
+                            Request Seeds
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-4">
+                    <div class="seed-card">
+                        <h6>Marigold Seeds</h6>
+                        <p class="text-secondary mb-2">Variety: Orange</p>
+                        <p class="seed-price mb-2">₹250 / kg</p>
+                        <p class="text-success">Sample stock: 40 kg</p>
+
+                        <button type="button"
+                                class="btn btn-success w-100"
+                                onclick="requestSeeds('Marigold', 'Orange', 250)">
+                            Request Seeds
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xl-4">
+                    <div class="seed-card">
+                        <h6>Chrysanthemum Seeds</h6>
+                        <p class="text-secondary mb-2">Variety: White</p>
+                        <p class="seed-price mb-2">₹400 / kg</p>
+                        <p class="text-warning">Sample stock: 15 kg</p>
+
+                        <button type="button"
+                                class="btn btn-success w-100"
+                                onclick="requestSeeds('Chrysanthemum', 'White', 400)">
+                            Request Seeds
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="small text-secondary mt-3 mb-0">
+                These are demonstration listings, not live supplier inventory.
+            </p>
+        </section>
+
+        <!-- NEW: My Seed Requests -->
+        <section class="dashboard-panel mb-4" id="seedRequests">
+            <h5>My Seed Requests</h5>
+            <p class="text-secondary">
+                Review seed requests submitted from this dashboard.
+            </p>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Seed</th>
+                            <th>Variety</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="seedRequestsTable">
+                        <tr>
+                            <td colspan="5"
+                                class="text-muted text-center">
+                                No seed requests yet.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Cultivation -->
+        <section class="dashboard-panel" id="cultivation">
+            <h5>Cultivation Overview</h5>
+            <p class="text-secondary mb-0">
+                Planting dates and expected flowering dates can be tracked here
+                in a future version.
+            </p>
+        </section>
+
+    </main>
+</div>
+
+<!-- Add Flower Modal -->
+<div class="modal fade" id="addFlowerModal" tabindex="-1"
+     aria-labelledby="addFlowerTitle" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form id="addFlowerForm">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addFlowerTitle">
+                        Add Flower Listing
+                    </h5>
+                    <button type="button" class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label" for="newFlower">
+                            Flower Name
+                        </label>
+                        <input class="form-control" id="newFlower"
+                               required placeholder="e.g. Rose">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="newQuantity">
+                            Quantity (kg)
+                        </label>
+                        <input type="number" class="form-control"
+                               id="newQuantity" min="1" step="0.01" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="newPrice">
+                            Price per kg (₹)
+                        </label>
+                        <input type="number" class="form-control"
+                               id="newPrice" min="0.01" step="0.01" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="newAvailability">
+                            Available Date
+                        </label>
+                        <input type="date" class="form-control"
+                               id="newAvailability" required>
+                    </div>
+
+                    <p class="text-secondary small mb-0">
+                        Demo only: listings are not saved permanently.
+                    </p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button"
+                            class="btn btn-outline-secondary"
+                            data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="btn btn-agri">
+                        Save Listing
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- NEW: Seed Request Modal -->
+<div class="modal fade" id="seedRequestModal" tabindex="-1"
+     aria-labelledby="seedRequestTitle" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form id="seedRequestForm">
+
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="seedRequestTitle">
+                        Request Seeds
+                    </h5>
+                    <button type="button" class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <input type="hidden" id="requestedSeed">
+                    <input type="hidden" id="requestedVariety">
+                    <input type="hidden" id="requestedPrice">
+
+                    <p id="seedRequestDetails" class="text-secondary"></p>
+
+                    <label for="seedRequestQuantity" class="form-label">
+                        Quantity Required (kg)
+                    </label>
+
+                    <input type="number"
+                           class="form-control"
+                           id="seedRequestQuantity"
+                           min="0.01"
+                           step="0.01"
+                           required>
+
+                    <p class="small text-secondary mt-2 mb-0">
+                        This demonstration form does not verify live stock.
+                    </p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="btn btn-success">
+                        Submit Request
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

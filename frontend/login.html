@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | AgriConnect</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .auth-page {
+            min-height: 100vh;
+            display: flex;
+            background: #faf9f5;
+        }
+        .auth-visual {
+            flex: 1;
+            min-height: 100vh;
+            background:
+                linear-gradient(#173d2c99, #173d2c99),
+                url("https://media.sciencephoto.com/c0/59/38/80/c0593880-800px-wm.jpg")
+                center/cover;
+            display: flex;
+            align-items: end;
+            padding: 60px;
+            color: white;
+        }
+        .auth-visual h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 750;
+        }
+        .auth-form-side {
+            width: 480px;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 45px;
+            background: white;
+        }
+        .auth-logo {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+        }
+        .auth-form-side h2 {
+            color: #173d2c;
+            font-weight: 750;
+        }
+        .auth-form-side .form-control {
+            padding: 12px;
+        }
+        .auth-form-side label {
+            font-weight: 600;
+            font-size: .92rem;
+        }
+        .auth-message {
+            min-height: 24px;
+            font-size: .9rem;
+        }
+        @media(max-width: 800px) {
+            .auth-visual { display: none; }
+            .auth-form-side {
+                width: 100%;
+                max-width: 480px;
+                margin: auto;
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="auth-page">
+    <section class="auth-visual">
+        <div>
+            <span class="eyebrow">WELCOME TO AGRICONNECT</span>
+            <h1>Every flower deserves the right market.</h1>
+            <p>Connect with growers and buyers through one simple platform.</p>
+        </div>
+    </section>
+
+    <main class="auth-form-side">
+        <div class="text-center mb-4">
+            <a href="index.html">
+                <img src="images/logo.png" class="auth-logo" alt="AgriConnect logo">
+            </a>
+            <h2 class="mt-3">Welcome back</h2>
+            <p class="text-secondary">Sign in to your AgriConnect account.</p>
+        </div>
+
+        <form id="loginForm">
+            <div class="mb-3">
+                <label for="loginEmail" class="form-label">Email address</label>
+                <input type="email" id="loginEmail" class="form-control"
+                       placeholder="you@example.com" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="loginPassword" class="form-label">Password</label>
+                <input type="password" id="loginPassword" class="form-control"
+                       placeholder="Enter your password" required>
+            </div>
+
+            <p id="loginMessage" class="auth-message" aria-live="polite"></p>
+
+            <button type="submit" class="btn btn-agri w-100">Login</button>
+        </form>
+
+        <p class="text-center mt-4 mb-0">
+            Don't have an account?
+            <a href="register.html" class="text-success fw-semibold">Register here</a>
+        </p>
+        <p class="text-center mt-3">
+            <a href="index.html" class="text-secondary text-decoration-none">← Back to Home</a>
+        </p>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
