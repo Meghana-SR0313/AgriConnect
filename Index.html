@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriConnect | Flower Marketplace</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2"
+               href="index.html">
+                <img src="images/logo.png" alt="AgriConnect Logo" class="logo">
+                <span>AgriConnect</span>
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarMenu"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="marketplace.html">Flowers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-success px-4" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-agri px-4" href="register.html">Join Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="eyebrow">GROW TOGETHER, BLOOM TOGETHER</span>
+
+                <h1>Connecting Flower Farmers <span>With Buyers.</span></h1>
+
+                <p>
+                    Discover fresh flowers, connect directly with farmers,
+                    and find the right flowers at the right time.
+                </p>
+
+                <form class="search-box" id="flowerSearch">
+                    <input type="text" id="searchInput"
+                           placeholder="Search roses, jasmine, location..."
+                           aria-label="Search flowers">
+                    <button type="submit" class="btn btn-agri">Find Flowers</button>
+                </form>
+
+                <div class="hero-note">
+                    <span>🌱</span> Supporting farmers. Simplifying flower sourcing.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row g-3 text-center">
+
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <h3>Farmers</h3>
+                        <p>Direct connections</p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <h3>Fresh Flowers</h3>
+                        <p>Multiple varieties</p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <h3>Fair Pricing</h3>
+                        <p>Transparent listings</p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <h3>Smart Matching</h3>
+                        <p>Supply meets demand</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Flowers -->
+    <section class="section-padding" id="flowers">
+        <div class="container">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">EXPLORE THE MARKETPLACE</span>
+                    <h2>Flowers in Bloom</h2>
+                    <p>Explore flowers offered by farmers.</p>
+                </div>
+
+                <a href="marketplace.html" class="view-link">
+                    View all flowers →
+                </a>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- Rose -->
+                <div class="col-6 col-lg-3">
+                    <article class="flower-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?auto=format&fit=crop&w=600&q=80"
+                            alt="Beautiful roses"
+                            loading="lazy">
+                        <div class="flower-info">
+                            <h5>Rose</h5>
+                            <p>Explore available listings</p>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Marigold -->
+                <div class="col-6 col-lg-3">
+                    <article class="flower-card">
+                        <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR891Ko8IVwKpfrrHpz_Dg2glJuSGjCfqad8jzT3Y7yzA&s=10"
+                            alt="Bright flowers"
+                            loading="lazy">
+                        <div class="flower-info">
+                            <h5>Marigold</h5>
+                            <p>Explore available listings</p>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Jasmine -->
+                <div class="col-6 col-lg-3">
+                    <article class="flower-card">
+                        <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmYpdmYun0I_e4gMtGmy34EMREu4wuqSU7ZKQlGyXAkg&s=10"
+                            alt="Fresh white and colorful flowers"
+                            loading="lazy">
+                        <div class="flower-info">
+                            <h5>Jasmine</h5>
+                            <p>Explore available listings</p>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Other Flowers -->
+                <div class="col-6 col-lg-3">
+                    <article class="flower-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=600&q=80"
+                            alt="Flower varieties"
+                            loading="lazy">
+                        <div class="flower-info">
+                            <h5>Other Flowers</h5>
+                            <p>Explore available listings</p>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Updated How It Works -->
+    <section class="how-section section-padding" id="how-it-works">
+        <div class="container">
+
+            <div class="text-center section-heading centered">
+                <div>
+                    <span class="eyebrow">SIMPLE AND TRANSPARENT</span>
+                    <h2>How AgriConnect Works</h2>
+                    <p>
+                        One platform connecting flower farmers, seed suppliers,
+                        buyers and florists.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-2">
+
+                <!-- Feature 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="step-card h-100">
+                        <span class="step-number">01</span>
+                        <h4>Farmers List Flowers</h4>
+                        <p>
+                            Farmers share flower varieties, quantities, prices
+                            and availability dates to reach potential buyers.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="step-card h-100">
+                        <span class="step-number">02</span>
+                        <h4>Buyers Find Matches</h4>
+                        <p>
+                            Buyers search and compare flowers based on their
+                            requirements, quantity, location and budget.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="step-card h-100">
+                        <span class="step-number">03</span>
+                        <h4>Orders Get Managed</h4>
+                        <p>
+                            Farmers and buyers manage flower requirements,
+                            review order details and coordinate deliveries.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="step-card h-100">
+                        <span class="step-number">04</span>
+                        <h4>Farmers Request Seeds</h4>
+                        <p>
+                            Farmers explore available flower seeds, compare
+                            varieties and prices, and submit seed requests.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="step-card h-100">
+                        <span class="step-number">05</span>
+                        <h4>Seed Suppliers Manage Stock</h4>
+                        <p>
+                            Seed suppliers list seed varieties, update prices
+                            and stock quantities, and manage incoming requests.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="step-card h-100">
+                        <span class="step-number">06</span>
+                        <h4>Florists Discover Flowers</h4>
+                        <p>
+                            Florists discover flower varieties and connect
+                            with suppliers to source flowers for their business.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section-padding" id="about">
+        <div class="container about-box">
+            <span class="eyebrow">OUR PURPOSE</span>
+            <h2>Helping Every Flower Find Its Market.</h2>
+
+            <p>
+                AgriConnect brings floriculture farmers, seed suppliers,
+                buyers and florists together through flower availability,
+                seed sourcing, requirement-based matching and data-driven
+                market insights.
+            </p>
+
+            <a href="register.html" class="btn btn-agri">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container d-flex flex-column flex-md-row
+                    justify-content-between align-items-center gap-3">
+
+            <div class="d-flex align-items-center gap-2">
+                <img src="images/logo.png" alt="AgriConnect Logo" class="footer-logo">
+                <strong>AgriConnect</strong>
+            </div>
+
+            <p>Connecting the floriculture community.</p>
+
+            <span>© 2026 AgriConnect</span>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
